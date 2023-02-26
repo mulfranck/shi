@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+.app {
+  /* width: 100vw; */
+  /* height: 100vh; */
+  margin: 0;
+  padding: 0;
+  background-color: rgb(204, 204, 204);
+}
+main {
+  height: inherit;
+  width: inherit;
+  display: grid;
+  grid-template-columns: 15% 60% 25%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: rgb(24, 23, 23);
+  padding-left: 1rem;
+  display: flex;
+  color: white;
+  align-items: center;
+  height: 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.top-row,
+.main-chart,
+.right-noti {
+  background-color: floralwhite;
+  border-radius: 6px;
+  padding: .6rem .4rem;
+  margin: .6rem auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.top-row {
+  height: 10rem;
+  display: flex;
+  overflow-x: auto;
+  
+}
+
+
+
+.right-noti {
+  width: 92%;
+  margin-left: .6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.right-noti div {
+  padding: .6rem 1rem;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right-noti h3 {
+  margin-bottom: .8rem;
+  text-align: center;
+  font-size: 1.8rem;
+
+  text-decoration: underline;
+}
+
+.user-time {
+  font-size: 1.4rem;
+}
+.total-time {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+
+aside {
+  background-color: rgb(24, 23, 23);
+  margin: .6rem .6rem .6rem .3rem;
+  border-radius: 6px;
+}
+
+aside div {
+  display: flex;
+  flex-direction: column;
+}
+aside div h3 {
+  color: floralwhite;
+  padding: 1rem 1rem .4rem 1rem;
+  border-bottom: 1px solid floralwhite;
+}
+
+aside div button {
+  width: 90%;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+  margin-left: 1.4rem;
+  align-self: center;
+  background: transparent;
+  border: none;
+  color: floralwhite;
+  font-size: 1rem;
+}
+
+aside div button:hover {
+  cursor: pointer;
+  background-color: rgb(116, 114, 114);
+}
+button.active {
+  background-color: rgb(204, 204, 204);
+  color: rgb(24, 23, 23);
 }
