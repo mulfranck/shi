@@ -8,6 +8,7 @@ import {
   LinearScale,
   CategoryScale,
 } from "chart.js";
+import { useEffect } from "react";
 
 import { Line } from "react-chartjs-2";
 
@@ -28,34 +29,31 @@ const Chart = ({ datasets, labels }) => {
         responsive: true,
         transition: {
             show: {
+                easing: "easeInCubic",
                 animations: {
-                    x: { from: 0 },
-                    y: { from: 0 },
-                    
-                }
+                    x: { from: 0, },
+                    y: { from: 0, },
+                },
             },
             hide: {
+                easing: "easeOutCubic",
                 animations: {
-                    x: { to: 0 },
-                    y: { to: 0 },
-                }
-            }
-        },
-        plugin: {
-            legend: {
-                display: false,
+                    x: { to: 0, },
+                    y: { to: 0, },
+                },
             },
-
-            title: {
-                display: true,
-                text: 'One week Chart'
-            }
-        }
+        },
     }
     const lineData = {
         labels,
         datasets
     }
+
+    console.log('datasets', datasets);
+
+    useEffect((effect) => {
+        console.log('effect', effect)
+    }, [datasets.length]);
 
     return (
 

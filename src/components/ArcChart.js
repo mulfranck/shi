@@ -27,13 +27,13 @@ const ArcChart = ({datasets: dt}) => {
     const tt = extractTT(dt);
     
     const arcData = {
-        labels: [dt.label, 'almost 2100min'],
+        labels: [dt.label, 'Challenge target'],
         datasets: [
             {
-                label: 'Total time in minutes',
+                label: ['Total time in minutes'],
                 data: [tt, 2100 - tt],
-                borderColor: [dt.borderColor, 'floralwhite'],
-                backgroundColor: [dt.backgroundColor, 'floralwhite'],
+                borderColor: [dt.borderColor, 'powderblue'],
+                backgroundColor: [dt.backgroundColor, 'powderblue'],
             },
         ]    
     }
@@ -41,13 +41,15 @@ const ArcChart = ({datasets: dt}) => {
     const lineOpt = {
         responsive: true,
         maintainAspectRatio: false,
-        plugin: {
-            title: {
-                display: true,
-                align: 'center',
-                text: dt.label,
+        legend: {
+            display: false,
+        },
+        plugins: {
+            datalabels: false,
+            legend: {
+                display: false,
             }
-        }
+        },    
     }
     
     return (

@@ -27,17 +27,19 @@ main {
 .right-noti {
   background-color: floralwhite;
   border-radius: 6px;
-  padding: .6rem .4rem;
   margin: .6rem auto;
+  padding: .6rem .4rem;
 }
 
 .top-row {
-  height: 10rem;
+  height: 11rem;
   display: flex;
   overflow-x: auto;
-  
 }
-
+.top-row div {
+  width: 11rem;
+  margin: .4rem;
+}
 
 
 .right-noti {
@@ -62,8 +64,11 @@ main {
   text-decoration: underline;
 }
 
-.user-time {
+.right-noti .user-time {
   font-size: 1.4rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 .total-time {
   font-size: 1.6rem;
@@ -95,7 +100,9 @@ aside div button {
   align-self: center;
   background: transparent;
   border: none;
-  color: floralwhite;
+  text-align: end;
+  padding-right: 1rem;
+  color: rgb(255, 250, 240);
   font-size: 1rem;
 }
 
@@ -106,4 +113,9 @@ aside div button:hover {
 button.active {
   background-color: rgb(204, 204, 204);
   color: rgb(24, 23, 23);
+}
+
+.loader {
+  display: block;
+  margin: auto;
 }
