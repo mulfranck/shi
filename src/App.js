@@ -14,7 +14,7 @@ const urls = [
     'https://wakatime.com/share/@mulfranck/4fdf6505-2b4c-4f67-bdfa-649580aec397.json',
     'https://wakatime.com/share/@prodfc/afa172e3-e16b-4568-8840-8f728988c6be.json'
 ]
-const colors = ['purple', 'red', 'blue', 'coral'];
+const colors = ['red', 'blue', 'purple', 'coral'];
 
 function fetchData(url) {
     return $.ajax({
