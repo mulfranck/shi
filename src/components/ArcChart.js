@@ -15,7 +15,9 @@ import {
     Legend
   );
 
-const ArcChart = ({labels: name, datasets: dt}) => {
+// Against 2100mins thats roughly 5hrs aday.
+
+const ArcChart = ({datasets: dt}) => {
 
     const extractTT = (dt) => {
         return dt.data.reduce((p, c) => p + c, 0);
@@ -24,11 +26,11 @@ const ArcChart = ({labels: name, datasets: dt}) => {
     const tt = extractTT(dt);
     
     const arcData = {
-        labels: [dt.label, 'almost 1000min'],
+        labels: [dt.label, 'almost 2100min'],
         datasets: [
             {
                 label: 'Total time in minutes',
-                data: [tt, 1000 - tt],
+                data: [tt, 2100 - tt],
                 borderColor: [dt.borderColor, 'floralwhite'],
                 backgroundColor: [dt.backgroundColor, 'floralwhite'],
             },

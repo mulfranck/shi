@@ -141,7 +141,7 @@ const App = () => {
             <section className="left--main">
                 <div className="top-row">
                     { datasets && datasets.map((user, idx) => {
-                        return <ArcChart key={idx} labels={user.label}  datasets = {user} />
+                        return <ArcChart key={idx} datasets = {user} />
                     })}
                 </div>
 
