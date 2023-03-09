@@ -12,6 +12,7 @@ import {
   ChartJs.register(
     ArcElement,
     Tooltip,
+    Title,
     Legend
   );
 

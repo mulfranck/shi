@@ -4,6 +4,7 @@ import Chart from "./components/LineChart";
 import ArcChart from './components/ArcChart';
 
 import './App.css'
+import BarChart from "./components/BarChart";
 
 const urls = [
     'https://wakatime.com/share/@mulfranck/4fdf6505-2b4c-4f67-bdfa-649580aec397.json',
@@ -52,6 +53,12 @@ const App = () => {
      */
     const [ datasets, setDatasets ] = useState([]); 
     const [ labels, setLabels ] = useState([]); // ['Mon', 'Tues', ..] i.e the x-axis values
+    const [ isLineShowing, setIsLineShowing ] = useState(true);
+
+
+    const chartSwitchHandler = () => {
+        setIsLineShowing(!isLineShowing);
+    }
 
     /**
      * @param {Array} arrOfDays - an array of object from the api
@@ -116,7 +123,7 @@ const App = () => {
                 setLabels(storedLabels);
                 setDatasets(storedDataset);
             }
-        }
+        } // eslint-disable-next-line
     }, []);
 
     return (
@@ -128,8 +135,7 @@ const App = () => {
             <aside>
                 <div>
                     <h3>Charts </h3>
-                    <button className="line-chart active">Line Chart</button>
-                    <button className="bar-chart">Bar Chart</button>
+                    <button className={isLineShowing ? 'Active': ''} onClick={chartSwitchHandler}>{ isLineShowing ? 'Line Chart' : 'Bar Chart' }</button>
                 </div>
 
                 <div>
@@ -146,7 +152,8 @@ const App = () => {
                 </div>
 
                 <div className="main-chart">
-                    {datasets && <Chart labels={labels} datasets={datasets} chartType='line'/>}
+                    {datasets && isLineShowing && <Chart labels={labels} datasets={datasets} chartType='line'/>}
+                    {datasets && !isLineShowing && <BarChart labels={labels} datasets={datasets} />}
                 </div>
 
             </section>
