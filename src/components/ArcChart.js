@@ -12,10 +12,13 @@ import {
   ChartJs.register(
     ArcElement,
     Tooltip,
+    Title,
     Legend
   );
 
-const ArcChart = ({labels: name, datasets: dt}) => {
+// Against 2100mins thats roughly 5hrs aday.
+
+const ArcChart = ({datasets: dt}) => {
 
     const extractTT = (dt) => {
         return dt.data.reduce((p, c) => p + c, 0);
@@ -24,13 +27,13 @@ const ArcChart = ({labels: name, datasets: dt}) => {
     const tt = extractTT(dt);
     
     const arcData = {
-        labels: [dt.label, 'almost 1000min'],
+        labels: [dt.label, 'Challenge target'],
         datasets: [
             {
-                label: 'Total time in minutes',
-                data: [tt, 1000 - tt],
-                borderColor: [dt.borderColor, 'floralwhite'],
-                backgroundColor: [dt.backgroundColor, 'floralwhite'],
+                label: ['Total time in minutes'],
+                data: [tt, 2100 - tt],
+                borderColor: [dt.borderColor, 'powderblue'],
+                backgroundColor: [dt.backgroundColor, 'powderblue'],
             },
         ]    
     }
@@ -38,13 +41,15 @@ const ArcChart = ({labels: name, datasets: dt}) => {
     const lineOpt = {
         responsive: true,
         maintainAspectRatio: false,
-        plugin: {
-            title: {
-                display: true,
-                align: 'center',
-                text: dt.label,
+        legend: {
+            display: false,
+        },
+        plugins: {
+            datalabels: false,
+            legend: {
+                display: false,
             }
-        }
+        },    
     }
     
     return (
